@@ -1,0 +1,57 @@
+.form__wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+form {
+  width: 460px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+fieldset {
+  border: none;
+  margin: 24px;
+  padding: 0;
+}
+
+input, button, select {
+  border-radius: 4px;
+  outline: none;
+  padding: 10px;
+  border: 1px solid #e5e8ee;
+  font-size: 16px;
+}
+
+input, button {
+  width: 100%;
+}
+
+label {
+  font-size: 12px;
+  margin-bottom: 4px;
+  display: block;
+}
+
+input:focus {
+  border-color: #6abcfb;
+  box-shadow: 0 2px 15px rgba(0,0,0,.04);
+}
+
+select {
+  margin-right: 10px;
+  width: 120px;
+}
+
+select:last-of-type {
+  margin-right: 0;
+}
+
+button {
+  color: #fff;
+  background-color: dodgerblue;
+  cursor: pointer;
+  border: none;
+}

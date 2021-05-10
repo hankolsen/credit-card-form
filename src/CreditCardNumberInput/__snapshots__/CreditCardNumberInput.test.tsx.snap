@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CreditCardNumberInput test should render the CreditCardNumberInput 1`] = `
+<div>
+  <label
+    for="cardNumber"
+  >
+    Card Number
+  </label>
+  <input
+    id="cardNumber"
+    maxlength="16"
+    name="cardNumber"
+    type="number"
+    value=""
+  />
+</div>
+`;
