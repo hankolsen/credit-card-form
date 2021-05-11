@@ -1,8 +1,10 @@
 import React, { ChangeEvent, useState } from 'react';
 
 import './CreditCardNumberInput.css';
+import { useCreditCard } from 'CreditCardContext/CreditCardContext';
 
 const CreditCardNumberInput = () => {
+  const { setCardNumber } = useCreditCard();
   const [numbers, setNumbers] = useState<string>('');
   const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
     const { value } = event.target;
@@ -14,6 +16,7 @@ const CreditCardNumberInput = () => {
       setNumbers(`${value.slice(0, 3)} ${value.slice(4)}`);
     }
     setNumbers(value);
+    setCardNumber(value);
   };
 
   return (

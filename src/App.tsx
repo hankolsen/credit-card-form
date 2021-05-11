@@ -2,11 +2,14 @@ import React from 'react';
 import CreditCardForm from './CreditCardForm/CreditCardForm';
 
 import './App.css';
+import { CreditCardContextProvider } from './CreditCardContext/CreditCardContext';
 
 function App() {
   return (
     <div className="App">
-      <CreditCardForm />
+      <CreditCardContextProvider>
+        <CreditCardForm />
+      </CreditCardContextProvider>
     </div>
   );
 }
