@@ -6,28 +6,26 @@ import ExpirationDateInput from '../ExpirationDateInput/ExpirationDateInput';
 
 import './CreditCardForm.css';
 
-const CreditCardForm = () => {
-  return (
-    <div className="form__wrapper">
-      <form>
-        <fieldset>
-          <CreditCardNumberInput />
-        </fieldset>
-        <fieldset>
-          <CreditCardNameInput />
-        </fieldset>
-        <fieldset>
-          <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-            <ExpirationDateInput />
-            <CvvInput />
-          </div>
-        </fieldset>
-        <fieldset>
-          <button type="submit">Submit</button>
-        </fieldset>
-      </form>
-    </div>
-  );
-};
+const CreditCardForm = () => (
+  <div className="form__wrapper">
+    <form>
+      <fieldset>
+        <CreditCardNumberInput />
+      </fieldset>
+      <fieldset>
+        <CreditCardNameInput />
+      </fieldset>
+      <fieldset>
+        <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+          <ExpirationDateInput />
+          <CvvInput />
+        </div>
+      </fieldset>
+      <fieldset>
+        <button type="submit">Submit</button>
+      </fieldset>
+    </form>
+  </div>
+);
 
 export default CreditCardForm;

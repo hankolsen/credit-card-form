@@ -11,7 +11,7 @@ const CreditCardNumberInput = () => {
       return;
     }
     if (value.length > 4) {
-      setNumbers(value.slice(0, 3) + ' ' + value.slice(4));
+      setNumbers(`${value.slice(0, 3)} ${value.slice(4)}`);
     }
     setNumbers(value);
   };

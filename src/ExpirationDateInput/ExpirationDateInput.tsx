@@ -6,7 +6,7 @@ const ExpirationDateInput = () => {
   const years = Array(10).fill(undefined);
   return (
     <div>
-      <label>Expiration Date</label>
+      <label htmlFor="expirationDate">Expiration Date</label>
       <select>
         <optgroup label="Month">
           {months.map((_, month) => (

@@ -1,12 +1,10 @@
 import React from 'react';
 
-const CvvInput = () => {
-  return (
-    <div style={{ width: 120 }}>
-      <label>CVV</label>
-      <input type="number" />
-    </div>
-  );
-};
+const CvvInput = () => (
+  <div style={{ width: 120 }}>
+    <label htmlFor="cvv">CVV</label>
+    <input id="cvv" type="number" />
+  </div>
+);
 
 export default CvvInput;

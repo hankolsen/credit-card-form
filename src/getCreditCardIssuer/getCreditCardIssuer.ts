@@ -19,6 +19,7 @@ const getCreditCardIssuer = (entry: string) => {
       cardVendor = vendor;
       return true;
     }
+    return false;
   });
   return cardVendor;
 };
