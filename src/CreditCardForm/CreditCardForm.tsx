@@ -11,7 +11,7 @@ const CreditCardForm = () => {
     <div className="form__wrapper">
       <form>
         <fieldset>
-          <CreditCardNumberInput/>
+          <CreditCardNumberInput />
         </fieldset>
         <fieldset>
           <CreditCardNameInput />

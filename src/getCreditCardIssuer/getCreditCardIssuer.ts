@@ -2,8 +2,8 @@ export const creditCardVendors = {
   VISA: 'Visa',
   MASTERCARD: 'Master Card',
   AMERICANEXPRESS: 'American Express',
-  DINERS: 'Diners Club'
-}
+  DINERS: 'Diners Club',
+};
 
 const getCreditCardIssuer = (entry: string) => {
   const patterns: { [vendor: string]: RegExp } = {
@@ -11,7 +11,7 @@ const getCreditCardIssuer = (entry: string) => {
     [creditCardVendors.MASTERCARD]: /^(?:5[1-5]|2[2-7])\d+$/,
     [creditCardVendors.AMERICANEXPRESS]: /^3[4|7]\d+$/,
     [creditCardVendors.DINERS]: /^30[0-5]|309\d+$/,
-  }
+  };
 
   let cardVendor;
   Object.entries(patterns).some(([vendor, regexp]) => {
@@ -19,7 +19,7 @@ const getCreditCardIssuer = (entry: string) => {
       cardVendor = vendor;
       return true;
     }
-  })
+  });
   return cardVendor;
 };
 

@@ -9,17 +9,19 @@ const ExpirationDateInput = () => {
       <label>Expiration Date</label>
       <select>
         <optgroup label="Month">
-          {months.map((_, month) => <option>{month + 1}</option>)}
+          {months.map((_, month) => (
+            <option>{month + 1}</option>
+          ))}
         </optgroup>
       </select>
       <select>
         <optgroup label="Year">
-          {years.map((_, year) => <option>{thisYear + year}</option>)}
+          {years.map((_, year) => (
+            <option>{thisYear + year}</option>
+          ))}
         </optgroup>
       </select>
     </div>
   );
-}
-;
-
+};
 export default ExpirationDateInput;

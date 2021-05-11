@@ -17,7 +17,9 @@ fieldset {
   padding: 0;
 }
 
-input, button, select {
+input,
+button,
+select {
   border-radius: 4px;
   outline: none;
   padding: 10px;
@@ -25,7 +27,8 @@ input, button, select {
   font-size: 16px;
 }
 
-input, button {
+input,
+button {
   width: 100%;
 }
 
@@ -37,7 +40,7 @@ label {
 
 input:focus {
   border-color: #6abcfb;
-  box-shadow: 0 2px 15px rgba(0,0,0,.04);
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.04);
 }
 
 select {

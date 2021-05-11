@@ -10,7 +10,7 @@ const getSingleDigit = (value: number) => {
     .toString()
     .split('')
     .map(Number)
-    .reduce((partSum, n) => (partSum + n), 0);
+    .reduce((partSum, n) => partSum + n, 0);
 };
 
 const validateCreditCard = (entry: string) => {
@@ -19,10 +19,10 @@ const validateCreditCard = (entry: string) => {
   }
 
   const digits = entry
-    .replace(/\D+/g, '')  // Remove any spaces, dots etc
-    .split('')                          // Create an array of strings
-    .reverse()                                   // Reverse the array so we get correct calculation order
-    .map(Number);                                // and finally make numbers of the now string entries
+    .replace(/\D+/g, '') // Remove any spaces, dots etc
+    .split('') // Create an array of strings
+    .reverse() // Reverse the array so we get correct calculation order
+    .map(Number); // and finally make numbers of the now string entries
 
   // The firs number in the list is now the checksum that we want get from our calculation
   const expectedChecksum = digits.shift();
