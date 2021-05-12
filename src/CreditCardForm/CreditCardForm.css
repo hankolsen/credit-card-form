@@ -48,11 +48,6 @@ label {
   display: block;
 }
 
-input:focus {
-  border-color: #6abcfb;
-  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.04);
-}
-
 select {
   margin-right: 10px;
   width: 120px;
@@ -60,6 +55,12 @@ select {
 
 select:last-of-type {
   margin-right: 0;
+}
+
+select:focus,
+input:focus {
+  border-color: #6abcfb;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.04);
 }
 
 button {

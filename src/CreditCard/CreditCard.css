@@ -1,13 +1,12 @@
 .card__wrapper {
   width: 350px;
-  position: relative;
   perspective: 800px;
   aspect-ratio: 85.6 / 53.98;
 }
 
 .card {
   font-family: CreditCard, sans-serif;
-  position: absolute;
+  position: relative;
   width: 100%;
   height: 100%;
   transform-style: preserve-3d;
@@ -35,7 +34,8 @@
 .card__back {
   background: linear-gradient(to right, #3159cc, #3139ff);
   color: white;
-  transform: rotateX(180deg);
+  transform: rotateY(180deg);
+  flex-direction: column;
 }
 
 .card__content {
@@ -44,10 +44,13 @@
   flex-direction: column;
   justify-content: space-between;
   width: 100%;
+
+  /* Set a fixed height so that the card number on the backside appears in the same location */
+  height: 111px;
 }
 
 .card__number {
-  font-size: 1.5rem;
+  font-size: 1.25rem;
 }
 
 .card--flipped {
@@ -59,30 +62,38 @@
 }
 
 @keyframes flipp {
+  0% {
+    transform: rotateY(0);
+  }
+
   10% {
-    transform: rotateX(0) scale(0.85) translateZ(20px);
+    transform: rotateY(0) scale(0.85) translateZ(20px);
   }
 
   90% {
-    transform: rotateX(-180deg) scale(0.85) translateZ(-20px);
+    transform: rotateY(180deg) scale(0.85) translateZ(-20px);
   }
 
   100% {
-    transform: rotateX(-180deg);
+    transform: rotateY(180deg);
   }
 }
 
 @keyframes flopp {
+  00% {
+    transform: rotateY(180deg);
+  }
+
   10% {
-    transform: rotateX(-180deg) scale(0.85) translateZ(20px);
+    transform: rotateY(180deg) scale(0.85) translateZ(20px);
   }
 
   90% {
-    transform: rotateX(0) scale(0.85) translateZ(-20px);
+    transform: rotateY(0) scale(0.85) translateZ(-20px);
   }
 
   100% {
-    transform: rotateX(0deg);
+    transform: rotateY(0deg);
   }
 }
 
@@ -95,7 +106,7 @@
 }
 
 .card__name-expiration-wrapper {
-  margin-top: 48px;
+  margin-top: 24px;
   display: flex;
   justify-content: space-between;
 
@@ -137,4 +148,42 @@
 .card__expiration-wrapper > span {
   font-family: 'Helvetica Neue', 'Arial', sans-serif;
   margin: -4px 2px;
+}
+
+.card__strips-wrapper {
+  width: 100%;
+}
+
+.card__magnetic-strip {
+  width: 100%;
+  height: 30px;
+  margin-top: 20px;
+  background: #333;
+}
+
+.card__signature-strip {
+  width: 70%;
+  height: 35px;
+  margin-top: 20px;
+  margin-left: 10px;
+  background: #efefef;
+  text-align: right;
+  padding: 2px;
+}
+
+.card__cvv {
+  font-style: italic;
+  font-family: 'Helvetica Neue', 'Arial', sans-serif;
+  color: #333;
+  font-size: 14px;
+}
+
+.card__back .card__number,
+.card__back .card__name,
+.card__back .card__expiration-month,
+.card__back .card__expiration-year {
+  transform: scale(-1, 1);
+  opacity: 0.3;
+  color: rgba(10, 60, 150, 0.8);
+  text-shadow: 1px 2px 4px #222, 0 0 0 #000, 1px 2px 4px #fff;
 }
