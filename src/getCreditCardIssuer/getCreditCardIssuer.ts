@@ -1,16 +1,16 @@
 export const creditCardVendors = {
-  VISA: 'Visa',
-  MASTERCARD: 'Master Card',
-  AMERICANEXPRESS: 'American Express',
-  DINERS: 'Diners Club',
+  VISA: 'visa',
+  MASTERCARD: 'mastercard',
+  AMERICANEXPRESS: 'amex',
+  DINERS: 'diners',
 };
 
 const getCreditCardIssuer = (entry: string) => {
   const patterns: { [vendor: string]: RegExp } = {
-    [creditCardVendors.VISA]: /^4\d+$/,
-    [creditCardVendors.MASTERCARD]: /^(?:5[1-5]|2[2-7])\d+$/,
-    [creditCardVendors.AMERICANEXPRESS]: /^3[4|7]\d+$/,
-    [creditCardVendors.DINERS]: /^30[0-5]|309\d+$/,
+    [creditCardVendors.VISA]: /^4/,
+    [creditCardVendors.MASTERCARD]: /^(?:5[1-5]|2[2-7])/,
+    [creditCardVendors.AMERICANEXPRESS]: /^3[4|7]/,
+    [creditCardVendors.DINERS]: /^30[0-5]|309/,
   };
 
   let cardVendor;

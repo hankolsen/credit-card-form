@@ -7,6 +7,10 @@ const CreditCardNameInput = () => {
   const { cardName, setCardName } = useCreditCard();
   const onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { value } = event.target;
+    if (value.length > 26) {
+      event.preventDefault();
+      return;
+    }
     setCardName(value.toUpperCase());
   };
 

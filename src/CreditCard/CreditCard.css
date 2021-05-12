@@ -1,9 +1,8 @@
 .card__wrapper {
-  width: 450px;
-  height: 250px;
+  width: 350px;
   position: relative;
   perspective: 800px;
-  margin: 0 auto;
+  aspect-ratio: 85.6 / 53.98;
 }
 
 .card {
@@ -87,24 +86,55 @@
   }
 }
 
+.card__logo {
+  width: 72px;
+  fill: #fff;
+  position: absolute;
+  top: 10px;
+  right: 25px;
+}
+
 .card__name-expiration-wrapper {
   margin-top: 48px;
   display: flex;
+  justify-content: space-between;
+
+  /* Take up space even if empty,
+  to prevent card from growing when the user enters name or expiration date */
+  height: 36px;
+}
+
+.card__name {
+  max-width: 240px;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.card__label {
+  font-size: 12px;
+  margin-bottom: 4px;
+  font-family: 'Helvetica Neue', 'Arial', sans-serif;
+}
+
+.card__expiration-label-wrapper {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
   justify-content: space-between;
 }
 
 .card__expiration-wrapper {
   display: flex;
   justify-content: flex-end;
-  align-items: center;
 }
 
 .card__expiration-month,
 .card__expiration-year {
-  font-size: 0.7rem;
+  /* Numbers are so much bigger than letters in the creditcard font */
+  font-size: 0.6rem;
 }
 
 .card__expiration-wrapper > span {
   font-family: 'Helvetica Neue', 'Arial', sans-serif;
-  margin: 0 2px;
+  margin: -4px 2px;
 }
