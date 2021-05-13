@@ -8,18 +8,18 @@
 }
 
 html {
-  font-size: 10px;
+  font-size: 11px;
 }
 
 @media screen and (min-width: 351px) {
   html {
-    font-size: 12px;
+    font-size: 13px;
   }
 }
 
 @media screen and (min-width: 401px) {
   html {
-    font-size: 13px;
+    font-size: 14px;
   }
 }
 
