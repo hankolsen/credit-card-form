@@ -25,6 +25,7 @@ type CreditCardContextType = {
   formattedCardNumber: string | undefined;
   cardIssuer: string | undefined;
   cardNumberLength: number;
+  expirationMontOutput: string;
 };
 
 const CreditCardContext =
@@ -55,6 +56,10 @@ const CreditCardContextProvider: FunctionComponent = ({ children }) => {
     formattedCardNumber = amexNumbers.join(' ');
   }
 
+  const expirationMontOutput = expirationMonth
+    ? expirationMonth.padStart(2, '0')
+    : '';
+
   const value: CreditCardContextType = useMemo(
     () => ({
       isFlipped,
@@ -72,6 +77,7 @@ const CreditCardContextProvider: FunctionComponent = ({ children }) => {
       formattedCardNumber,
       cardIssuer,
       cardNumberLength,
+      expirationMontOutput,
     }),
     [
       cardCvv,
@@ -79,6 +85,7 @@ const CreditCardContextProvider: FunctionComponent = ({ children }) => {
       cardName,
       cardNumber,
       cardNumberLength,
+      expirationMontOutput,
       expirationMonth,
       expirationYear,
       formattedCardNumber,

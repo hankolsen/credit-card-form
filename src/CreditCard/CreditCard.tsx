@@ -1,22 +1,17 @@
 import React, { useState } from 'react';
-import SVG from 'react-inlinesvg';
 
 import { useCreditCard } from 'CreditCardContext/CreditCardContext';
 
 import './CreditCard.css';
+import CardFront from './CardFront';
+import CardBack from './CardBack';
 
 const CreditCard = () => {
-  const {
-    isFlipped,
-    cardName,
-    cardCvv,
-    expirationMonth,
-    expirationYear,
-    formattedCardNumber,
-    cardIssuer,
-  } = useCreditCard();
+  const { isFlipped } = useCreditCard();
   const [showLogo, setShowLogo] = useState(true);
 
+  // flipClass should not be set on load!
+  // It is needed to animate the "return" rotation from back to front
   let flipClass = '';
   if (isFlipped !== undefined) {
     flipClass = isFlipped ? 'card--flipp' : 'card--flopp';
@@ -29,73 +24,11 @@ const CreditCard = () => {
     }, 150);
   };
 
-  const expirationMontOutput = expirationMonth
-    ? expirationMonth.padStart(2, '0')
-    : '';
-
   return (
     <div className="card__wrapper">
       <div className={`card ${flipClass}`} onAnimationStart={onAnimationStart}>
-        <div className="card__face card__front">
-          {showLogo && (
-            <SVG
-              className="card__logo"
-              src={`${process.env.PUBLIC_URL}/logos/${cardIssuer}.svg`}
-            />
-          )}
-          <div className="card__content">
-            <div className="card__number">{formattedCardNumber}</div>
-            <div className="card__name-expiration-wrapper">
-              <div className="card__name-wrapper">
-                <div className="card__name-label card__label">Card Holder</div>
-                <div className="card__name">{cardName}</div>
-              </div>
-              <div className="card__expiration-label-wrapper">
-                <div className="card__expiration-month-label card__label">
-                  Valid Thru
-                </div>
-                {expirationMonth || expirationYear ? (
-                  <div className="card__expiration-wrapper">
-                    <div className="card__expiration-month-wrapper">
-                      <div className="card__expiration-month">
-                        {expirationMontOutput}
-                      </div>
-                    </div>
-                    <span>{expirationMonth && expirationYear ? '/' : ''}</span>
-                    <div className="card__expiration-year">
-                      {expirationYear.substring(2)}
-                    </div>
-                  </div>
-                ) : null}
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="card__face card__back">
-          <div className="card__strips-wrapper">
-            <div className="card__magnetic-strip" />
-            <div className="card__signature-strip">
-              <div className="card__cvv">{cardCvv}</div>
-            </div>
-          </div>
-          <div className="card__content">
-            <div className="card__number">{formattedCardNumber}</div>
-            <div className="card__name-expiration-wrapper">
-              <div className="card__name">{cardName}</div>
-              <div className="card__expiration-wrapper">
-                <div className="card__expiration-month-wrapper">
-                  <div className="card__expiration-month">
-                    {expirationMontOutput}
-                  </div>
-                </div>
-                <span>{expirationMonth && expirationYear ? '/' : ''}</span>
-                <div className="card__expiration-year">
-                  {expirationYear.substring(2)}
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <CardFront showLogo={showLogo} />
+        <CardBack />
       </div>
     </div>
   );
