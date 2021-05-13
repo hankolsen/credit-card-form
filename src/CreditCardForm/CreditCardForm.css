@@ -16,7 +16,13 @@
 }
 
 form {
-  width: 460px;
+  width: 100%;
+}
+
+@media screen and (min-width: 500px) {
+  form {
+    width: 460px;
+  }
 }
 
 fieldset {
@@ -40,6 +46,10 @@ button {
   width: 100%;
 }
 
+.card__expirationDate-wrapper {
+  width: 61%;
+}
+
 label {
   font-size: 12px;
   margin-bottom: 4px;
@@ -47,8 +57,12 @@ label {
 }
 
 select {
-  margin-right: 10px;
-  width: 120px;
+  margin-right: 4%;
+  width: 48%;
+}
+
+.card__cvv-input {
+  width: 29%;
 }
 
 select:last-of-type {

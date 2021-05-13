@@ -7,6 +7,28 @@
   src: local('creditcard'), url('./fonts/creditcard.ttf') format('truetype');
 }
 
+html {
+  font-size: 10px;
+}
+
+@media screen and (min-width: 351px) {
+  html {
+    font-size: 12px;
+  }
+}
+
+@media screen and (min-width: 401px) {
+  html {
+    font-size: 13px;
+  }
+}
+
+@media screen and (min-width: 500px) {
+  html {
+    font-size: 16px;
+  }
+}
+
 body {
   margin: 0;
   padding: 0;

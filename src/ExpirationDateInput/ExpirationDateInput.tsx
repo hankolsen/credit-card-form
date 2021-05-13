@@ -22,7 +22,7 @@ const ExpirationDateInput = () => {
   const thisYear = new Date().getFullYear();
   const years = Array(10).fill(undefined);
   return (
-    <div>
+    <div className="card__expirationDate-wrapper">
       <label htmlFor="expirationDate">Expiration Date</label>
       <select value={expirationMonth || 'Month'} onChange={onMonthChange}>
         <option disabled>Month</option>

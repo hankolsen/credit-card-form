@@ -1,8 +1,14 @@
 .card__wrapper {
-  width: 350px;
+  width: 76%;
   margin: 0 auto;
   perspective: 800px;
   aspect-ratio: 85.6 / 53.98;
+}
+
+@media screen and (min-width: 500px) {
+  .card__wrapper {
+    width: 350px;
+  }
 }
 
 .card {
