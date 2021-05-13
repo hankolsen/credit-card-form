@@ -84,6 +84,20 @@ const CreditCard = () => {
           </div>
           <div className="card__content">
             <div className="card__number">{cardNumberOutput}</div>
+            <div className="card__name-expiration-wrapper">
+              <div className="card__name">{cardName}</div>
+              <div className="card__expiration-wrapper">
+                <div className="card__expiration-month-wrapper">
+                  <div className="card__expiration-month">
+                    {expirationMontOutput}
+                  </div>
+                </div>
+                <span>{expirationMonth && expirationYear ? '/' : ''}</span>
+                <div className="card__expiration-year">
+                  {expirationYear.substring(2)}
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>

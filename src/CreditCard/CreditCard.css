@@ -189,9 +189,14 @@
 .card__back .card__number,
 .card__back .card__name,
 .card__back .card__expiration-month,
-.card__back .card__expiration-year {
+.card__back .card__expiration-year,
+.card__back .card__expiration-wrapper > span {
   transform: scale(-1, 1);
   opacity: 0.3;
   color: rgba(10, 60, 150, 0.8);
   text-shadow: 1px 2px 4px #222, 0 0 0 #000, 1px 2px 4px #fff;
+}
+
+.card__back .card__name-expiration-wrapper {
+  align-items: flex-end;
 }
