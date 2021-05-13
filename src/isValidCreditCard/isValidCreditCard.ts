@@ -13,7 +13,7 @@ const getSingleDigit = (value: number) => {
     .reduce((partSum, n) => partSum + n, 0);
 };
 
-const validateCreditCard = (entry: string) => {
+const isValidCreditCard = (entry: string) => {
   if (!entry || entry.length === 1) {
     return undefined;
   }
@@ -41,4 +41,4 @@ const validateCreditCard = (entry: string) => {
   return expectedChecksum === (checksum * 9) % 10;
 };
 
-export default validateCreditCard;
+export default isValidCreditCard;

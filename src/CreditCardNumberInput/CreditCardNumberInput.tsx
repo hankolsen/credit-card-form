@@ -2,28 +2,23 @@ import React, { ChangeEvent, useState } from 'react';
 
 import './CreditCardNumberInput.css';
 import { useCreditCard } from 'CreditCardContext/CreditCardContext';
-import validateCreditCard from '../validatedCreditCard/validateCreditCard';
+import isValidCreditCard from '../isValidCreditCard/isValidCreditCard';
 
 const CreditCardNumberInput = () => {
-  const { setCardNumber } = useCreditCard();
+  const { cardNumber, setCardNumber, cardNumberLength } = useCreditCard();
   const [error, setError] = useState(false);
-  const [numbers, setNumbers] = useState<string>('');
-  const wantedLength = 16;
+
   const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
     const { value } = event.target;
-    if (value.length > 16) {
+    if (value.length > cardNumberLength) {
       event.preventDefault();
       return;
     }
-    if (value.length > 4) {
-      setNumbers(`${value.slice(0, 3)} ${value.slice(4)}`);
-    }
-    if (value.length === wantedLength) {
-      setError(!validateCreditCard(value) ?? false);
+    if (value.length === cardNumberLength) {
+      setError(!isValidCreditCard(value) ?? false);
     } else {
       setError(false);
     }
-    setNumbers(value);
     setCardNumber(value);
   };
 
@@ -35,8 +30,8 @@ const CreditCardNumberInput = () => {
         id="cardNumber"
         type="number"
         onChange={handleInputChange}
-        maxLength={16}
-        value={numbers}
+        maxLength={cardNumberLength}
+        value={cardNumber}
         className={error ? 'card__number--error' : ''}
       />
       {error && <p className="card__number-error-message">That seems wrong</p>}

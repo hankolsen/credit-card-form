@@ -1,19 +1,19 @@
-import React, { useRef, useState } from 'react';
-import SVG, { Props as SVGProps } from 'react-inlinesvg';
+import React, { useState } from 'react';
+import SVG from 'react-inlinesvg';
 
 import { useCreditCard } from 'CreditCardContext/CreditCardContext';
-import getCreditCardIssuer from '../getCreditCardIssuer/getCreditCardIssuer';
 
 import './CreditCard.css';
 
 const CreditCard = () => {
   const {
     isFlipped,
-    cardNumber,
     cardName,
     cardCvv,
     expirationMonth,
     expirationYear,
+    formattedCardNumber,
+    cardIssuer,
   } = useCreditCard();
   const [showLogo, setShowLogo] = useState(true);
 
@@ -29,14 +29,10 @@ const CreditCard = () => {
     }, 150);
   };
 
-  const issuer = getCreditCardIssuer(cardNumber);
-  const cardNumberOutput = cardNumber
-    .padEnd(16, '#')
-    .match(/([\d|#]{1,4})/g)
-    ?.join(' ');
   const expirationMontOutput = expirationMonth
     ? expirationMonth.padStart(2, '0')
     : '';
+
   return (
     <div className="card__wrapper">
       <div className={`card ${flipClass}`} onAnimationStart={onAnimationStart}>
@@ -44,11 +40,11 @@ const CreditCard = () => {
           {showLogo && (
             <SVG
               className="card__logo"
-              src={`${process.env.PUBLIC_URL}/logos/${issuer}.svg`}
+              src={`${process.env.PUBLIC_URL}/logos/${cardIssuer}.svg`}
             />
           )}
           <div className="card__content">
-            <div className="card__number">{cardNumberOutput}</div>
+            <div className="card__number">{formattedCardNumber}</div>
             <div className="card__name-expiration-wrapper">
               <div className="card__name-wrapper">
                 <div className="card__name-label card__label">Card Holder</div>
@@ -83,7 +79,7 @@ const CreditCard = () => {
             </div>
           </div>
           <div className="card__content">
-            <div className="card__number">{cardNumberOutput}</div>
+            <div className="card__number">{formattedCardNumber}</div>
             <div className="card__name-expiration-wrapper">
               <div className="card__name">{cardName}</div>
               <div className="card__expiration-wrapper">

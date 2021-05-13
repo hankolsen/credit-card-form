@@ -5,6 +5,9 @@ import React, {
   useMemo,
   useState,
 } from 'react';
+import getCreditCardIssuer, {
+  CreditCardIssuers,
+} from '../getCreditCardIssuer/getCreditCardIssuer';
 
 type CreditCardContextType = {
   isFlipped?: boolean;
@@ -19,6 +22,9 @@ type CreditCardContextType = {
   setExpirationMonth: (month: string) => void;
   expirationYear: string;
   setExpirationYear: (year: string) => void;
+  formattedCardNumber: string | undefined;
+  cardIssuer: string | undefined;
+  cardNumberLength: number;
 };
 
 const CreditCardContext =
@@ -31,6 +37,23 @@ const CreditCardContextProvider: FunctionComponent = ({ children }) => {
   const [cardCvv, setCardCvv] = useState<string>('');
   const [expirationMonth, setExpirationMonth] = useState<string>('');
   const [expirationYear, setExpirationYear] = useState<string>('');
+
+  const cardIssuer = getCreditCardIssuer(cardNumber);
+  const cardNumberLength =
+    cardIssuer === CreditCardIssuers.AMERICANEXPRESS ? 15 : 16;
+  let formattedCardNumber = cardNumber
+    .padEnd(16, '#')
+    .match(/([\d|#]{1,4})/g)
+    ?.join(' ');
+
+  if (cardIssuer === CreditCardIssuers.AMERICANEXPRESS) {
+    // eslint-disable-next-line @typescript-eslint/naming-convention
+    const [_, ...amexNumbers] =
+      cardNumber
+        .padEnd(15, '#')
+        .match(/([\d|#]{1,4})([\d|#]{1,6})([\d|#]{1,5})/) || [];
+    formattedCardNumber = amexNumbers.join(' ');
+  }
 
   const value: CreditCardContextType = useMemo(
     () => ({
@@ -46,8 +69,21 @@ const CreditCardContextProvider: FunctionComponent = ({ children }) => {
       setExpirationMonth,
       expirationYear,
       setExpirationYear,
+      formattedCardNumber,
+      cardIssuer,
+      cardNumberLength,
     }),
-    [cardCvv, cardName, cardNumber, expirationMonth, expirationYear, isFlipped],
+    [
+      cardCvv,
+      cardIssuer,
+      cardName,
+      cardNumber,
+      cardNumberLength,
+      expirationMonth,
+      expirationYear,
+      formattedCardNumber,
+      isFlipped,
+    ],
   );
   return (
     <CreditCardContext.Provider value={value}>
