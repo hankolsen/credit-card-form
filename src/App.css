@@ -7,11 +7,26 @@
   src: local('creditcard'), url('./fonts/creditcard.ttf') format('truetype');
 }
 
-html,
-body,
-#root,
-.App {
-  height: 100%;
+html {
+  font-size: 11px;
+}
+
+@media screen and (min-width: 351px) {
+  html {
+    font-size: 13px;
+  }
+}
+
+@media screen and (min-width: 401px) {
+  html {
+    font-size: 14px;
+  }
+}
+
+@media screen and (min-width: 500px) {
+  html {
+    font-size: 16px;
+  }
 }
 
 body {

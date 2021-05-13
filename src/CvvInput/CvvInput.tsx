@@ -18,7 +18,7 @@ const CvvInput = () => {
     setCardCvv(value);
   };
   return (
-    <div style={{ width: 120 }}>
+    <div className="card__cvv-input">
       <label htmlFor="cvv">CVV</label>
       <input
         id="cvv"
