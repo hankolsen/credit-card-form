@@ -8,6 +8,7 @@ exports[`CreditCardNumberInput test should render the CreditCardNumberInput 1`] 
     Card Number
   </label>
   <input
+    class=""
     id="cardNumber"
     maxlength="16"
     name="cardNumber"

@@ -4,3 +4,18 @@ input[type='number']::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
+
+.card__number--error,
+.card__number--error:focus {
+  border-color: #b00020;
+  background-color: hsl(349, 100%, 90%);
+}
+
+.card__number-error-message {
+  padding: 0;
+  text-align: right;
+  margin-top: -28px;
+  margin-right: 8px;
+  color: #b00020;
+  font-size: 0.75rem;
+}
