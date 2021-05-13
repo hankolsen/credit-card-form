@@ -43,6 +43,7 @@
   color: white;
   transform: rotateY(180deg);
   flex-direction: column;
+  justify-content: space-between;
 }
 
 .card__content {
@@ -60,11 +61,11 @@
   font-size: 1.25rem;
 }
 
-.card--flipped {
+.card--flipp {
   animation: flipp 0.5s forwards;
 }
 
-.card--flopped {
+.card--flopp {
   animation: flopp 0.5s;
 }
 
