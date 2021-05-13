@@ -1,5 +1,6 @@
 .card__wrapper {
   width: 350px;
+  margin: 0 auto;
   perspective: 800px;
   aspect-ratio: 85.6 / 53.98;
 }

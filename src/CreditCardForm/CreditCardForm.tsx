@@ -9,25 +9,27 @@ import './CreditCardForm.css';
 
 const CreditCardForm = () => (
   <div className="wrapper">
-    <CreditCard />
-    <div className="form__wrapper">
-      <form>
-        <fieldset>
-          <CreditCardNumberInput />
-        </fieldset>
-        <fieldset>
-          <CreditCardNameInput />
-        </fieldset>
-        <fieldset>
-          <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-            <ExpirationDateInput />
-            <CvvInput />
-          </div>
-        </fieldset>
-        <fieldset>
-          <button type="submit">Submit</button>
-        </fieldset>
-      </form>
+    <div>
+      <CreditCard />
+      <div className="form__wrapper">
+        <form>
+          <fieldset>
+            <CreditCardNumberInput />
+          </fieldset>
+          <fieldset>
+            <CreditCardNameInput />
+          </fieldset>
+          <fieldset>
+            <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+              <ExpirationDateInput />
+              <CvvInput />
+            </div>
+          </fieldset>
+          <fieldset>
+            <button type="submit">Submit</button>
+          </fieldset>
+        </form>
+      </div>
     </div>
   </div>
 );

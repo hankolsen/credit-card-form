@@ -7,13 +7,6 @@
   src: local('creditcard'), url('./fonts/creditcard.ttf') format('truetype');
 }
 
-html,
-body,
-#root,
-.App {
-  height: 100%;
-}
-
 body {
   margin: 0;
   padding: 0;
